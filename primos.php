@@ -8,19 +8,27 @@
     Dica: Utilizar o operador de módulo % para pegar o resto da divisão.
 */
 
-for($i = 1; $i <= 12; $i++)
-{
-    $divisores = 0;
-     
-    for($j = $i; $j >= 1; $j--)
-    {
-        if (($i % $j) == 0) {
-            $divisores++;
+<?php
+
+$total_primos = 5;
+$primos = [];
+
+for ($numero = 2; count($primos) < $total_primos; $numero++){
+    
+    $isPrimo = true;
+    
+    for($divisor = 2; $divisor < $numero; $divisor++){
+        $resto = $numero % $divisor;
+        
+        if ($resto==0){
+            $isPrimo = false;
+            break;
         }
     }
-     
-    if ($divisores == 2)
-    {
-        echo $i . ', ';
+    
+    if ($isPrimo){
+        $primos[]=$numero;   
     }
 }
+
+echo implode(", ", $primos);
