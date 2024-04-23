@@ -32,3 +32,23 @@ for ($numero = 2; count($primos) < $total_primos; $numero++){
 }
 
 echo implode(", ", $primos);
+
+//
+
+$total_primos = 5;
+$primos = [];
+
+for ($numero = 2; count($primos) < $total_primos; $numero++){
+    $isPrimo = true;
+    for($divisor = 2; $divisor < $numero; $divisor++){
+        $resto = $numero % $divisor;
+        if ($resto==0){
+            $isPrimo = false;
+            break;
+        }
+    }
+    if ($isPrimo){
+        $primos[]=$numero;   
+    }
+}
+echo implode(", ", $primos);
